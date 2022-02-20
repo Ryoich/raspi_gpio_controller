@@ -5,6 +5,7 @@ class MyController(Controller, My_Raspi_GPIO_Controller):
     
     def __init__(self, **kwargs):
         Controller.__init__(self, **kwargs)
+        My_Raspi_GPIO_Controller.__init__(self)
     
     def on_x_press(self):
         self.go_forward()
