@@ -12,6 +12,6 @@ class MyController(Controller):
         print("Now I press the x button")
         self.raspi_gpio.go_forward()
 
-    def on_x_press(self):
+    def on_x_release(self):
         print("Now I release the x button")
         self.raspi_gpio.stop()
