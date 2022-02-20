@@ -9,7 +9,10 @@ class MyController(Controller, My_Raspi_GPIO_Controller):
     
     def on_x_press(self):
         self.go_forward()
+        print("Now I press the x button")
 
     def on_x_press(self):
         self.stop()
+        print("Now I release the x button")
+
 
