@@ -8,6 +8,9 @@ class My_Raspi_GPIO_Controller:
         self.DIG1 = DIG1
         self.DIG2 = DIG2
 
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setwarnings(False)
+
         GPIO.setup(self.AN1, GPIO.OUT)
         GPIO.setup(self.AN2, GPIO.OUT)
         GPIO.setup(self.DIG1, GPIO.OUT)
