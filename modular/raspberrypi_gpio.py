@@ -3,7 +3,7 @@ from time import sleep
 
 
 class My_Raspi_GPIO_Controller:
-    def __init__(self,  AN1=12, AN2=13, DIG1=26, DIG2=24):
+    def __init__(self, AN1=12, AN2=13, DIG1=26, DIG2=24):
         self.AN1 = AN1
         self.AN2 = AN2
         self.DIG1 = DIG1
@@ -20,6 +20,7 @@ class My_Raspi_GPIO_Controller:
         sleep(1)
         self.p1 = GPIO.PWM(self.AN1, 100)
         self.p2 = GPIO.PWM(self.AN2, 100)
+        super().__init__()
 
     def turn_left(self):
         GPIO.output(self.DIG1, GPIO.HIGH)
