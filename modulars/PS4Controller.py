@@ -1,4 +1,4 @@
-from .raspberrypi_gpio import My_Raspi_GPIO_Controller
+from raspberrypi_gpio import My_Raspi_GPIO_Controller
 from pyPS4Controller.controller import Controller
 
 class MyController(Controller, My_Raspi_GPIO_Controller):
