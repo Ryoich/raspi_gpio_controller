@@ -15,3 +15,29 @@ class MyController(Controller):
     def on_x_release(self):
         print("Now I release the x button")
         self.raspi_gpio.stop()
+    
+    def on_circle_press(self):
+        print("Now I press the o button")
+        self.raspi_gpio.go_backward()
+
+    def on_circle_release(self):
+        print("Now I release the o button")
+        self.raspi_gpio.stop()
+
+    def on_triangle_press(self):
+        print("Now I press the ^ button")
+        self.raspi_gpio.turn_right()
+    
+
+    def on_triangle_release(self):
+        print("Now I release the ^ button")
+        self.raspi_gpio.stop()
+
+    def on_L1_press(self):
+        print("Now I press the L1 button")
+        self.raspi_gpio.turn_left()
+    
+
+    def on_L1_release(self):
+        print("Now I release the L1 button")
+        self.raspi_gpio.stop()
