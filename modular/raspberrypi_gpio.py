@@ -1,9 +1,10 @@
 import RPi.GPIO as GPIO
 from time import sleep
+from call_back import CallBack
 
-
-class My_Raspi_GPIO_Controller:
-    def __init__(self,  AN1=12, AN2=13, DIG1=26, DIG2=24):
+class My_Raspi_GPIO_Controller(CallBack):
+    def __init__(self, PIN=4, AN1=12, AN2=13, DIG1=26, DIG2=24):
+        super().__init__(PIN)
         self.AN1 = AN1
         self.AN2 = AN2
         self.DIG1 = DIG1
