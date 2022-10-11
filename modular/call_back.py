@@ -6,7 +6,7 @@ class CallBack:
        # 4番pinを入力、プルアップに設定
         self.PIN = PIN
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(pin, GPIO.IN, GPIO.PUD_UP) 
+        GPIO.setup(self.PIN, GPIO.IN, GPIO.PUD_UP) 
 
         # 割り込みイベント設定
         # 割り込みを検知するpin番号、エッジ、バウンスタイムを設定

@@ -7,7 +7,6 @@ class ReadEncoder:
         self.RoAPin = RoAPin
         self.RoBPin = RoBPin
         self.globalCounter = 0
-        self.is_inspect_complete = False
         self.Last_RoB_Status = 0
         self.Current_RoB_Status = 0
 
@@ -16,16 +15,16 @@ class ReadEncoder:
         GPIO.setup(self.RoBPin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
     def rotaryDeal(self):
-        start = time.time()
+        rotaryDeal_start = time.time()
+        is_inspect_complete = False
         self.Last_RoB_Status = GPIO.input(self.RoBPin)
         while (not GPIO.input(self.RoAPin)):
             self.Current_RoB_Status = GPIO.input(self.RoBPin)
-            self.is_inspect_complete = True
+            is_inspect_complete = True
 
-        if self.is_inspect_complete:
-            self.is_inspect_complete = False
+        if is_inspect_complete:
             self.globalCounter +=  self.Current_RoB_Status - self.Last_RoB_Status
-        return time.time() - start
+        return time.time() - rotaryDeal_start
 
     def loop(self):
         while True:
@@ -36,6 +35,8 @@ class ReadEncoder:
                 print(f"{(self.globalCounter - preGlobalCounter)/(600 * deal_time)} Hz")
             if (self.globalCounter >= 600):
                 self.globalCounter -= 600
+            if (self.globalCounter < 0):
+                self.globalCounter += 600
 
     def destroy(self):
         GPIO.cleanup()

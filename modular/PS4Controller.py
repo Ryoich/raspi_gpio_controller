@@ -7,6 +7,7 @@ class MyController(Controller):
     def __init__(self, **kwargs):
         Controller.__init__(self, **kwargs)
         self.raspi_gpio = My_Raspi_GPIO_Controller()
+        self.state
 
     def on_x_press(self):
         print("Now I press the x button")
